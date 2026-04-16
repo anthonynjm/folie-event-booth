@@ -49,6 +49,8 @@ const Pricing = () => (
       description="Explore photobooth rental packages from La Folie Entertainment. Essential, Premium, and Ultimate plans for events across Lebanon. Get a free quote."
       canonical="/pricing"
       jsonLd={jsonLd}
+      keywords="photobooth rental prices Lebanon, how much does a photobooth cost in Lebanon, photobooth packages Beirut, photobooth rental near me Lebanon"
+      breadcrumbs={[{ name: 'Pricing', href: '/pricing' }]}
     />
     <section className="py-16 md:py-24">
       <div className="container">

@@ -63,16 +63,63 @@ const locations = [
   'Beirut', 'Jounieh', 'Byblos', 'Mount Lebanon', 'Batroun', 'Tripoli', 'Sidon', 'Zahle', 'Faraya', 'UAE',
 ];
 
-const jsonLd = {
+const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': 'https://www.lafolieentertainment.com/#business',
   name: 'La Folie Entertainment',
   description: 'Premium photobooth rentals for weddings, corporate events, and parties across Lebanon and the UAE.',
   telephone: '+961-71-582-222',
   url: 'https://www.lafolieentertainment.com',
-  address: { '@type': 'PostalAddress', addressLocality: 'Beirut', addressCountry: 'LB' },
-  areaServed: ['Lebanon', 'United Arab Emirates'],
+  image: 'https://www.lafolieentertainment.com/og-default.jpg',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Beirut',
+    addressCountry: 'LB',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 33.8938,
+    longitude: 35.5018,
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Lebanon' },
+    { '@type': 'Country', name: 'United Arab Emirates' },
+  ],
   priceRange: '$$',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '09:00',
+    closes: '21:00',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '150',
+    bestRating: '5',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Photobooth Rental Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mirror Photobooth Rental', url: 'https://www.lafolieentertainment.com/services/mirror-photobooth' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '360 Photobooth Rental', url: 'https://www.lafolieentertainment.com/services/360-photobooth' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Photo Experiences', url: 'https://www.lafolieentertainment.com/services/custom-photo-experiences' } },
+    ],
+  },
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'La Folie Entertainment',
+  url: 'https://www.lafolieentertainment.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://www.lafolieentertainment.com/?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
 };
 
 const Index = () => {
@@ -82,7 +129,8 @@ const Index = () => {
         title="La Folie Entertainment — Premium Photobooth Rental in Lebanon"
         description="Rent mirror photobooths and 360 spinners for weddings, corporate events, and parties across Lebanon. Instant prints, custom branding, premium experience. Book now!"
         canonical="/"
-        jsonLd={jsonLd}
+        jsonLd={[localBusinessSchema, websiteSchema]}
+        keywords="photobooth rental Lebanon, photobooth Lebanon, photo booth Beirut, rent photobooth Lebanon, mirror photobooth Lebanon, 360 photobooth Lebanon, glambot Lebanon, wedding photobooth Lebanon, corporate photobooth Lebanon"
       />
 
       {/* Hero */}

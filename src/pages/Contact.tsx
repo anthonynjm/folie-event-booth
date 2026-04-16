@@ -13,6 +13,8 @@ const Contact = () => (
       title="Contact La Folie Entertainment — Book a Photobooth in Lebanon"
       description="Get in touch with La Folie Entertainment to book a photobooth for your event. WhatsApp, phone, or email. Serving all of Lebanon and UAE."
       canonical="/contact"
+      keywords="book photobooth Lebanon, contact photobooth rental Beirut, photobooth rental Dubai UAE"
+      breadcrumbs={[{ name: 'Contact', href: '/contact' }]}
     />
     <section className="py-16 md:py-24">
       <div className="container">

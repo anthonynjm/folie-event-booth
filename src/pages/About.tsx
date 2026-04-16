@@ -13,6 +13,8 @@ const About = () => (
       title="About La Folie Entertainment — Premium Photobooth Company Lebanon"
       description="Learn about La Folie Entertainment, Lebanon's premium photobooth rental company. Years of experience creating unforgettable event moments."
       canonical="/about"
+      keywords="best photobooth company Lebanon, photobooth rental company Beirut, La Folie Entertainment about"
+      breadcrumbs={[{ name: 'About', href: '/about' }]}
     />
     <section className="py-16 md:py-24">
       <div className="container">

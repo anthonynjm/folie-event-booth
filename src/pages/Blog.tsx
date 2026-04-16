@@ -43,6 +43,8 @@ const Blog = () => (
       title="Photobooth Blog — Tips, Guides & Inspiration"
       description="Tips on choosing the right photobooth, event planning ideas, and inspiration for weddings and parties in Lebanon."
       canonical="/blog"
+      keywords="photobooth tips Lebanon, wedding photobooth guide, best photobooth company Lebanon, photobooth for wedding Beirut"
+      breadcrumbs={[{ name: 'Blog', href: '/blog' }]}
     />
     <section className="py-16 md:py-24">
       <div className="container max-w-4xl">

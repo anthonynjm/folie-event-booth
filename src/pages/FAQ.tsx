@@ -33,6 +33,8 @@ const FAQ = () => (
       description="Answers to common questions about renting a photobooth in Lebanon. Pricing, setup, delivery, customization, and more."
       canonical="/faq"
       jsonLd={jsonLd}
+      keywords="photobooth rental FAQ Lebanon, how much does photobooth cost Lebanon, photobooth setup time, photobooth delivery Beirut"
+      breadcrumbs={[{ name: 'FAQ', href: '/faq' }]}
     />
     <section className="py-16 md:py-24">
       <div className="container max-w-3xl">
