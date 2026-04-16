@@ -51,6 +51,7 @@ const Header = () => {
             <Phone className="h-4 w-4" />
             71 582 222
           </a>
+          <ThemeToggle />
           <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer">
             <Button className="bg-gradient-gold font-body text-sm font-semibold text-primary-foreground hover:opacity-90">
               Get a Quote
@@ -91,6 +92,7 @@ const Header = () => {
                 <Phone className="h-4 w-4" />
                 71 582 222
               </a>
+              <ThemeToggle />
               <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer" className="ml-auto">
                 <Button className="bg-gradient-gold font-body text-sm font-semibold text-primary-foreground">
                   Get a Quote
