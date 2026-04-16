@@ -37,6 +37,8 @@ const Gallery = () => {
         title="Photobooth Gallery — La Folie Entertainment Lebanon"
         description="Browse photos from our photobooth events across Lebanon. Weddings, corporate events, birthdays, and brand activations."
         canonical="/gallery"
+        keywords="photobooth event photos Lebanon, mirror booth photos Beirut, 360 booth video Lebanon, event gallery photobooth"
+        breadcrumbs={[{ name: 'Gallery', href: '/gallery' }]}
       />
       <section className="py-16 md:py-24">
         <div className="container">
