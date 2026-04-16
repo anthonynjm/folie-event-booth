@@ -6,6 +6,63 @@
 
 @layer base {
   :root {
+    --background: 40 30% 96%;
+    --foreground: 0 0% 8%;
+
+    --card: 40 20% 98%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 40 20% 98%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 40 60% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 15% 92%;
+    --secondary-foreground: 0 0% 15%;
+
+    --muted: 40 10% 88%;
+    --muted-foreground: 40 10% 45%;
+
+    --accent: 40 45% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 40 60% 45%;
+
+    --radius: 0.5rem;
+
+    --gold: 40 60% 45%;
+    --gold-light: 40 70% 60%;
+    --gold-dark: 40 50% 30%;
+    --champagne: 38 40% 75%;
+    --cream: 40 30% 92%;
+
+    --gradient-gold: linear-gradient(135deg, hsl(40 60% 45%), hsl(40 70% 60%));
+    --gradient-dark: linear-gradient(180deg, hsl(40 30% 96%), hsl(40 20% 92%));
+    --gradient-card: linear-gradient(145deg, hsl(40 20% 98%), hsl(40 15% 95%));
+
+    --shadow-gold: 0 4px 30px -5px hsl(40 60% 45% / 0.15);
+    --shadow-lg: 0 20px 60px -15px hsl(0 0% 0% / 0.1);
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Montserrat', system-ui, sans-serif;
+
+    --sidebar-background: 40 20% 94%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 40 60% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 15% 90%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 40 15% 85%;
+    --sidebar-ring: 40 60% 45%;
+  }
+
+  .dark {
     --background: 0 0% 4%;
     --foreground: 40 20% 95%;
 
@@ -48,9 +105,6 @@
 
     --shadow-gold: 0 4px 30px -5px hsl(40 60% 55% / 0.15);
     --shadow-lg: 0 20px 60px -15px hsl(0 0% 0% / 0.5);
-
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Montserrat', system-ui, sans-serif;
 
     --sidebar-background: 0 0% 6%;
     --sidebar-foreground: 40 20% 90%;
