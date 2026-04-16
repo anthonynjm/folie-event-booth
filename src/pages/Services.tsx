@@ -38,12 +38,25 @@ const servicesData = [
   },
 ];
 
+const serviceSchemas = servicesData.map((s) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: s.title,
+  description: s.description,
+  provider: { '@type': 'LocalBusiness', name: 'La Folie Entertainment' },
+  areaServed: [{ '@type': 'Country', name: 'Lebanon' }, { '@type': 'Country', name: 'United Arab Emirates' }],
+  url: `https://www.lafolieentertainment.com/services/${s.slug}`,
+}));
+
 const Services = () => (
   <Layout>
     <SEOHead
       title="Photobooth Services Lebanon — La Folie Entertainment"
       description="Explore our premium photobooth services: Mirror Booth, 360 Spinner, and Custom Photo Experiences for events across Lebanon."
       canonical="/services"
+      jsonLd={serviceSchemas}
+      keywords="mirror photobooth Lebanon, 360 photobooth Lebanon, glambot Lebanon, photobooth rental Beirut, custom photo experience Lebanon"
+      breadcrumbs={[{ name: 'Services', href: '/services' }]}
     />
     <section className="py-16 md:py-24">
       <div className="container">

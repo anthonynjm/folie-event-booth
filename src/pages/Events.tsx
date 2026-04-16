@@ -17,12 +17,25 @@ const events = [
   { title: 'Gender Reveal Photobooth', slug: 'gender-reveal-photobooth', description: 'Make the big reveal even more exciting with a photobooth that captures every reaction. Custom frames in pink and blue, confetti props, and instant prints let everyone take home a piece of the celebration. The 360 booth captures the exact moment of surprise!' },
 ];
 
+const eventSchemas = events.map((e) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: e.title,
+  description: e.description,
+  provider: { '@type': 'LocalBusiness', name: 'La Folie Entertainment' },
+  areaServed: [{ '@type': 'Country', name: 'Lebanon' }],
+  url: `https://www.lafolieentertainment.com/events/${e.slug}`,
+}));
+
 const Events = () => (
   <Layout>
     <SEOHead
       title="Events We Serve — Photobooth Rental for All Occasions | La Folie"
       description="Premium photobooth rentals for weddings, corporate events, birthdays, brand activations, and more across Lebanon."
       canonical="/events"
+      jsonLd={eventSchemas}
+      keywords="wedding photobooth Lebanon, corporate event photobooth Beirut, birthday photobooth rental Lebanon, brand activation photobooth"
+      breadcrumbs={[{ name: 'Events', href: '/events' }]}
     />
     <section className="py-16 md:py-24">
       <div className="container">
