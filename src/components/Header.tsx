@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import logo from '@/assets/logo.png';
 
 const navLinks = [
   { label: 'Services', href: '/services' },
@@ -23,9 +24,15 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-40 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between md:h-20">
         {/* Logo */}
-        <Link to="/" className="font-display text-xl font-bold tracking-wide text-foreground md:text-2xl">
-          <span className="text-gradient-gold">La Folie</span>{' '}
-          <span className="hidden sm:inline">Entertainment</span>
+        <Link to="/" aria-label="La Folie Entertainment home" className="flex items-center gap-2">
+          <img
+            src={logo}
+            alt="La Folie Entertainment"
+            width={160}
+            height={64}
+            className="h-10 w-auto md:h-12 dark:invert"
+          />
+          <span className="sr-only">La Folie Entertainment</span>
         </Link>
 
         {/* Desktop Nav */}

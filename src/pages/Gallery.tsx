@@ -2,33 +2,19 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
 import SEOHead from '@/components/SEOHead';
-import heroBg from '@/assets/hero-bg.jpg';
-import mirrorBooth from '@/assets/mirror-booth.jpg';
-import threeSixtyBooth from '@/assets/360-booth.jpg';
-import customBooth from '@/assets/custom-booth.jpg';
+import { useEvents } from '@/lib/eventsStore';
 
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 
 const categories = ['All', 'Weddings', 'Corporate', 'Birthdays', 'Brand Activations'];
 
-const images = [
-  { src: heroBg, alt: 'Mirror photobooth wedding Beirut Lebanon', category: 'Weddings' },
-  { src: mirrorBooth, alt: 'Mirror photobooth rental Lebanon event', category: 'Weddings' },
-  { src: threeSixtyBooth, alt: '360 photobooth corporate event Beirut', category: 'Corporate' },
-  { src: customBooth, alt: 'Custom branded photobooth Lebanon', category: 'Corporate' },
-  { src: mirrorBooth, alt: 'Photobooth birthday party Lebanon', category: 'Birthdays' },
-  { src: threeSixtyBooth, alt: '360 spinner birthday celebration Beirut', category: 'Birthdays' },
-  { src: heroBg, alt: 'Brand activation photobooth Lebanon', category: 'Brand Activations' },
-  { src: customBooth, alt: 'Corporate branded photo experience Beirut', category: 'Brand Activations' },
-  { src: mirrorBooth, alt: 'Wedding mirror booth Jounieh Lebanon', category: 'Weddings' },
-  { src: threeSixtyBooth, alt: '360 photobooth wedding reception Lebanon', category: 'Weddings' },
-  { src: heroBg, alt: 'Premium photobooth gala Beirut', category: 'Corporate' },
-  { src: customBooth, alt: 'Photobooth rental party Beirut Lebanon', category: 'Birthdays' },
-];
-
 const Gallery = () => {
+  const events = useEvents();
   const [filter, setFilter] = useState('All');
+  const images = events
+    .filter((e) => e.image)
+    .map((e) => ({ src: e.image, alt: e.alt, category: e.category, title: e.title }));
   const filtered = filter === 'All' ? images : images.filter((img) => img.category === filter);
 
   return (

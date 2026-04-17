@@ -4,10 +4,28 @@ import { Button } from '@/components/ui/button';
 import { Camera, Star, Users, Image as ImageIcon, ChevronRight, Sparkles } from 'lucide-react';
 import Layout from '@/components/Layout';
 import SEOHead from '@/components/SEOHead';
+import InstagramEmbed from '@/components/InstagramEmbed';
+import CorporateClients from '@/components/CorporateClients';
 import heroBg from '@/assets/hero-bg.jpg';
-import mirrorBooth from '@/assets/mirror-booth.jpg';
-import threeSixtyBooth from '@/assets/360-booth.jpg';
-import customBooth from '@/assets/custom-booth.jpg';
+import mirrorBooth from '@/assets/booths/mirror.jpg';
+import magazineBooth from '@/assets/booths/magazine.jpg';
+import roomBooth from '@/assets/booths/room-booth.jpg';
+import e1 from '@/assets/gallery/e1.jpg';
+import e2 from '@/assets/gallery/e2.jpg';
+import e3 from '@/assets/gallery/e3.jpg';
+import e4 from '@/assets/gallery/e4.jpg';
+import e5 from '@/assets/gallery/e5.jpg';
+import e6 from '@/assets/gallery/e6.jpg';
+import e7 from '@/assets/gallery/e7.jpg';
+import e8 from '@/assets/gallery/e8.jpg';
+
+const galleryImages = [e1, e2, e3, e4, e5, e6, e7, e8];
+
+const instagramPosts = [
+  'https://www.instagram.com/reel/CfjuOerDr6C/',
+  'https://www.instagram.com/p/CFZLfZKgOn9/',
+  'https://www.instagram.com/reel/DGla0rUMNom/',
+];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -28,22 +46,22 @@ const stats = [
 
 const services = [
   {
-    title: 'Mirror Photobooth',
-    description: 'An interactive full-length mirror with touchscreen animations, instant prints in under 8 seconds, and custom frames.',
+    title: 'Mirror Booth',
+    description: 'Interactive, glamorous, and fun. The Mirror Booth reflects your best angles while keeping the energy alive.',
     image: mirrorBooth,
-    href: '/services/mirror-photobooth',
+    href: '/services',
   },
   {
-    title: '360 Photobooth',
-    description: 'Slow-motion video captured from every angle. Fits 4–6 guests on the platform with branded overlays and instant sharing.',
-    image: threeSixtyBooth,
-    href: '/services/360-photobooth',
+    title: 'Magazine Booth',
+    description: 'Feel like a cover star. Every photo becomes a magazine headline moment, branded to your event.',
+    image: magazineBooth,
+    href: '/services',
   },
   {
-    title: 'Custom Experiences',
-    description: 'Bespoke photo setups with themed backdrops, branded frames for corporate clients, and custom props.',
-    image: customBooth,
-    href: '/services/custom-photo-experiences',
+    title: 'Room Booth',
+    description: 'Our top-tier immersive booth — cinematic photos, perfect lighting, a show-stopping experience.',
+    image: roomBooth,
+    href: '/services',
   },
 ];
 
@@ -212,7 +230,7 @@ const Index = () => {
               <motion.div key={service.title} variants={fadeInUp}>
                 <Link to={service.href} className="group block overflow-hidden rounded-lg border border-border/50 bg-card transition-all hover:border-primary/30 hover:glow-gold">
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img src={service.image} alt={`${service.title} rental in Lebanon`} loading="lazy" width={800} height={800} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={service.image} alt={`${service.title} rental in Lebanon`} loading="lazy" width={800} height={800} className="h-full w-full object-contain bg-muted transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-6">
                     <h3 className="font-display text-xl font-bold">{service.title}</h3>
@@ -283,6 +301,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Corporate Clients */}
+      <CorporateClients />
+
       {/* Gallery Preview */}
       <section className="border-y border-border/50 bg-card py-16 md:py-24">
         <div className="container">
@@ -297,7 +318,7 @@ const Index = () => {
             viewport={{ once: true }}
             variants={staggerContainer}
           >
-            {[heroBg, mirrorBooth, threeSixtyBooth, customBooth, mirrorBooth, heroBg, customBooth, threeSixtyBooth].map((img, i) => (
+            {galleryImages.map((img, i) => (
               <motion.div key={i} variants={fadeInUp} className={`overflow-hidden rounded-lg ${i === 0 || i === 5 ? 'row-span-2' : ''}`}>
                 <img src={img} alt={`Photobooth event Lebanon ${i + 1}`} loading="lazy" width={800} height={800} className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
               </motion.div>
@@ -309,6 +330,33 @@ const Index = () => {
                 View Full Gallery <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Instagram */}
+      <section className="py-16 md:py-24">
+        <div className="container">
+          <motion.div className="text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+            <motion.p variants={fadeInUp} className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              @lafolieentertainment
+            </motion.p>
+            <motion.h2 variants={fadeInUp} className="mt-3 font-display text-3xl font-bold md:text-4xl">
+              Latest from <span className="text-gradient-gold">Instagram</span>
+            </motion.h2>
+          </motion.div>
+          <div className="mt-10">
+            <InstagramEmbed urls={instagramPosts} />
+          </div>
+          <div className="mt-8 text-center">
+            <a
+              href="https://www.instagram.com/lafolieentertainment/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-body text-sm font-semibold text-primary hover:underline"
+            >
+              Follow @lafolieentertainment →
+            </a>
           </div>
         </div>
       </section>
