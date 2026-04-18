@@ -206,7 +206,7 @@ const Services = () => (
                   loading="lazy"
                   width={800}
                   height={600}
-                  className="h-full w-full object-contain bg-muted transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="flex flex-1 flex-col p-5">
