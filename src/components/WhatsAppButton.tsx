@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '96171582222';
+const WHATSAPP_NUMBER = '96170222018';
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hi La Folie! I'd like to get a quote for a photobooth at my event.",
 );

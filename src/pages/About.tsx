@@ -34,7 +34,7 @@ const About = () => (
               With over 500 events completed and thousands of happy guests, we've refined our craft to deliver premium quality, reliability, and fun at every single event.
             </motion.p>
             <motion.div variants={fadeInUp} className="mt-8">
-              <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/96170222018" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-gradient-gold font-body font-semibold text-primary-foreground hover:opacity-90">
                   Let's Plan Your Event
                 </Button>

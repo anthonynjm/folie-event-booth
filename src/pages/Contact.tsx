@@ -1,13 +1,49 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/Layout';
 import SEOHead from '@/components/SEOHead';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { toast } from 'sonner';
 
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
 
-const Contact = () => (
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/anthony-najem@hotmail.com';
+
+const Contact = () => {
+  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
+
+    setSubmitting(true);
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          ...payload,
+          _subject: `New quote request from ${payload.name || 'website'}`,
+          _template: 'table',
+        }),
+      });
+      if (!res.ok) throw new Error('Request failed');
+      setSent(true);
+      form.reset();
+      toast.success('Quote request sent! We\'ll be in touch shortly.');
+    } catch {
+      toast.error('Couldn\'t send the form. Please WhatsApp us instead.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
   <Layout>
     <SEOHead
       title="Contact La Folie Entertainment — Book a Photobooth in Lebanon"
@@ -26,29 +62,29 @@ const Contact = () => (
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           {/* Form */}
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0, transition: { delay: 0.2 } }} className="rounded-lg border border-border/50 bg-card p-6">
-            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); window.open('https://wa.me/96171582222', '_blank'); }}>
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label className="font-body text-sm font-medium text-foreground">Name</label>
-                <input type="text" className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" placeholder="Your name" />
+                <label htmlFor="name" className="font-body text-sm font-medium text-foreground">Name</label>
+                <input id="name" name="name" type="text" required className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" placeholder="Your name" />
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="font-body text-sm font-medium text-foreground">Email</label>
-                  <input type="email" className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" placeholder="you@email.com" />
+                  <label htmlFor="email" className="font-body text-sm font-medium text-foreground">Email</label>
+                  <input id="email" name="email" type="email" className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" placeholder="you@email.com" />
                 </div>
                 <div>
-                  <label className="font-body text-sm font-medium text-foreground">Phone</label>
-                  <input type="tel" className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" placeholder="+961 ..." />
+                  <label htmlFor="phone" className="font-body text-sm font-medium text-foreground">Phone <span className="text-primary">*</span></label>
+                  <input id="phone" name="phone" type="tel" required className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" placeholder="+961 ..." />
                 </div>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="font-body text-sm font-medium text-foreground">Event Date</label>
-                  <input type="date" className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" />
+                  <label htmlFor="event_date" className="font-body text-sm font-medium text-foreground">Event Date</label>
+                  <input id="event_date" name="event_date" type="date" className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" />
                 </div>
                 <div>
-                  <label className="font-body text-sm font-medium text-foreground">Event Type</label>
-                  <select className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary">
+                  <label htmlFor="event_type" className="font-body text-sm font-medium text-foreground">Event Type</label>
+                  <select id="event_type" name="event_type" defaultValue="Wedding" className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary">
                     <option>Wedding</option>
                     <option>Corporate Event</option>
                     <option>Birthday / Party</option>
@@ -59,18 +95,18 @@ const Contact = () => (
                 </div>
               </div>
               <div>
-                <label className="font-body text-sm font-medium text-foreground">Message</label>
-                <textarea rows={4} className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" placeholder="Tell us about your event..." />
+                <label htmlFor="message" className="font-body text-sm font-medium text-foreground">Message</label>
+                <textarea id="message" name="message" rows={4} className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" placeholder="Tell us about your event..." />
               </div>
-              <Button type="submit" className="w-full bg-gradient-gold font-body font-semibold text-primary-foreground hover:opacity-90">
-                Send Inquiry
+              <Button type="submit" disabled={submitting} className="w-full bg-gradient-gold font-body font-semibold text-primary-foreground hover:opacity-90 disabled:opacity-60">
+                {submitting ? 'Sending…' : sent ? 'Sent — we\'ll be in touch!' : 'Send Inquiry'}
               </Button>
             </form>
           </motion.div>
 
           {/* Info */}
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0, transition: { delay: 0.3 } }} className="space-y-6">
-            <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/96170222018" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="w-full bg-gradient-gold font-body text-base font-semibold text-primary-foreground hover:opacity-90">
                 <MessageCircle className="mr-2 h-5 w-5" /> Chat on WhatsApp
               </Button>
@@ -80,7 +116,7 @@ const Contact = () => (
                 <Phone className="h-5 w-5 text-primary" />
                 <div>
                   <p className="font-body text-xs text-muted-foreground">Phone</p>
-                  <a href="tel:+96171582222" className="font-body text-sm font-medium text-foreground hover:text-primary">71 582 222</a>
+                  <a href="tel:+96170222018" className="font-body text-sm font-medium text-foreground hover:text-primary">70 222 018</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -115,6 +151,7 @@ const Contact = () => (
       </div>
     </section>
   </Layout>
-);
+  );
+};
 
 export default Contact;

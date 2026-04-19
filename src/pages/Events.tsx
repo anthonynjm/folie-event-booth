@@ -48,7 +48,7 @@ const Events = () => (
             <motion.div key={event.slug} variants={fadeInUp} className="group rounded-lg border border-border/50 bg-card p-6 transition-all hover:border-primary/30 hover:glow-gold">
               <h2 className="font-display text-xl font-bold">{event.title}</h2>
               <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground">{event.description}</p>
-              <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1 font-body text-sm font-semibold text-primary transition-colors hover:text-gold-light">
+              <a href="https://wa.me/96170222018" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1 font-body text-sm font-semibold text-primary transition-colors hover:text-gold-light">
                 Book Now <ChevronRight className="h-4 w-4" />
               </a>
             </motion.div>

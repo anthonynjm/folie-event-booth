@@ -84,7 +84,7 @@ const Pricing = () => (
                 ))}
               </ul>
               <div className="mt-6">
-                <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer" className="block">
+                <a href="https://wa.me/96170222018" target="_blank" rel="noopener noreferrer" className="block">
                   <Button className={`w-full font-body font-semibold ${pkg.popular ? 'bg-gradient-gold text-primary-foreground hover:opacity-90' : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'}`}>
                     Get a Quote
                   </Button>

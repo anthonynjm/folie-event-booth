@@ -12,7 +12,6 @@ const faqs = [
   { q: 'Do you deliver outside Beirut?', a: 'Yes, we serve all of Lebanon including Jounieh, Byblos, Mount Lebanon, Batroun, Tripoli, Sidon, Zahle, and Faraya. We also offer services in the UAE. Delivery fees may apply depending on location.' },
   { q: 'How do guests receive their photos?', a: 'Guests receive instant high-quality prints on the spot. They can also get digital copies via QR code, email, or SMS for easy social media sharing. All photos are available in full resolution.' },
   { q: 'What is the difference between a mirror photobooth and a 360 photobooth?', a: 'The mirror photobooth is a full-length interactive mirror with touchscreen animations that takes photos and prints them instantly. The 360 photobooth captures slow-motion video as a camera arm spins around guests on an elevated platform — perfect for viral social content.' },
-  { q: 'Do you offer photobooth rentals in Dubai/UAE?', a: 'Yes! We offer photobooth rental services in Dubai and across the UAE. Contact us to discuss logistics and availability for your UAE event.' },
   { q: 'How far in advance should I book?', a: 'We recommend booking at least 2–4 weeks in advance, especially during peak wedding and event season (May–October). Popular dates fill up quickly, so the earlier you book, the better.' },
 ];
 

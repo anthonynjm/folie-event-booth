@@ -28,7 +28,7 @@ const organizationSchema = {
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,
   description: 'Premium photobooth rentals for weddings, corporate events, and parties across Lebanon and the UAE.',
-  telephone: '+961-71-582-222',
+  telephone: '+961-70-222-018',
   email: 'info@lafolieentertainment.com',
   address: {
     '@type': 'PostalAddress',
@@ -45,7 +45,7 @@ const organizationSchema = {
   ],
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+961-71-582-222',
+    telephone: '+961-70-222-018',
     contactType: 'customer service',
     areaServed: ['LB', 'AE'],
     availableLanguage: ['English', 'Arabic'],
