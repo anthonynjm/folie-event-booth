@@ -1,13 +1,13 @@
 import { useSyncExternalStore } from 'react';
-import e1 from '@/assets/gallery/e1.jpg';
-import e2 from '@/assets/gallery/e2.jpg';
-import e3 from '@/assets/gallery/e3.jpg';
-import e4 from '@/assets/gallery/e4.jpg';
-import e5 from '@/assets/gallery/e5.jpg';
-import e6 from '@/assets/gallery/e6.jpg';
-import e7 from '@/assets/gallery/e7.jpg';
-import e8 from '@/assets/gallery/e8.jpg';
-import e9 from '@/assets/gallery/e9.jpg';
+import e1 from '@/assets/gallery/e1.webp';
+import e2 from '@/assets/gallery/e2.webp';
+import e3 from '@/assets/gallery/e3.webp';
+import e4 from '@/assets/gallery/e4.webp';
+import e5 from '@/assets/gallery/e5.webp';
+import e6 from '@/assets/gallery/e6.webp';
+import e7 from '@/assets/gallery/e7.webp';
+import e8 from '@/assets/gallery/e8.webp';
+import e9 from '@/assets/gallery/e9.webp';
 
 export type EventCategory = 'Weddings' | 'Corporate' | 'Birthdays' | 'Brand Activations';
 

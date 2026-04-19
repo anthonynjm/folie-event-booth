@@ -7,17 +7,17 @@ import SEOHead from '@/components/SEOHead';
 import InstagramEmbed from '@/components/InstagramEmbed';
 import CorporateClients from '@/components/CorporateClients';
 import heroBg from '@/assets/hero-bg.jpg';
-import mirrorBooth from '@/assets/booths/mirror.jpg';
-import magazineBooth from '@/assets/booths/magazine.jpg';
-import roomBooth from '@/assets/booths/room-booth.jpg';
-import e1 from '@/assets/gallery/e1.jpg';
-import e2 from '@/assets/gallery/e2.jpg';
-import e3 from '@/assets/gallery/e3.jpg';
-import e4 from '@/assets/gallery/e4.jpg';
-import e5 from '@/assets/gallery/e5.jpg';
-import e6 from '@/assets/gallery/e6.jpg';
-import e7 from '@/assets/gallery/e7.jpg';
-import e8 from '@/assets/gallery/e8.jpg';
+import mirrorBooth from '@/assets/booths/mirror.webp';
+import magazineBooth from '@/assets/booths/magazine.webp';
+import roomBooth from '@/assets/booths/room-booth.webp';
+import e1 from '@/assets/gallery/e1.webp';
+import e2 from '@/assets/gallery/e2.webp';
+import e3 from '@/assets/gallery/e3.webp';
+import e4 from '@/assets/gallery/e4.webp';
+import e5 from '@/assets/gallery/e5.webp';
+import e6 from '@/assets/gallery/e6.webp';
+import e7 from '@/assets/gallery/e7.webp';
+import e8 from '@/assets/gallery/e8.webp';
 
 const galleryImages = [e1, e2, e3, e4, e5, e6, e7, e8];
 

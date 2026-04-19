@@ -15,6 +15,19 @@ const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const openWhatsAppFallback = (p: Record<string, FormDataEntryValue>) => {
+    const lines = [
+      `Hi La Folie — I'd like to request a quote.`,
+      p.name && `Name: ${p.name}`,
+      p.phone && `Phone: ${p.phone}`,
+      p.email && `Email: ${p.email}`,
+      p.event_type && `Event: ${p.event_type}`,
+      p.event_date && `Date: ${p.event_date}`,
+      p.message && `Message: ${p.message}`,
+    ].filter(Boolean).join('\n');
+    window.open(`https://wa.me/96170222018?text=${encodeURIComponent(lines)}`, '_blank');
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -37,7 +50,8 @@ const Contact = () => {
       form.reset();
       toast.success('Quote request sent! We\'ll be in touch shortly.');
     } catch {
-      toast.error('Couldn\'t send the form. Please WhatsApp us instead.');
+      toast('Opening WhatsApp instead so we don\'t lose your message…');
+      openWhatsAppFallback(payload);
     } finally {
       setSubmitting(false);
     }
