@@ -9,7 +9,7 @@ import { toast } from 'sonner';
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
 
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/anthony-najem@hotmail.com';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/eca45746b19489ba1a44924d06dfee84';
 
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
