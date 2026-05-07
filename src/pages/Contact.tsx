@@ -41,7 +41,7 @@ const Contact = () => {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           ...payload,
-          _subject: `New quote request from ${payload.name || 'website'}`,
+          _subject: `La Folie Request — ${payload.name || 'Website Inquiry'}`,
           _template: 'table',
         }),
       });
