@@ -21,7 +21,7 @@ import e4 from '@/assets/gallery/e4.webp';
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 
-const WHATSAPP = 'https://wa.me/96170222018';
+const WHATSAPP = 'https://wa.me/96171582222';
 
 interface BoothService {
   title: string;

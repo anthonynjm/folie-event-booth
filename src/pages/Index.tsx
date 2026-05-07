@@ -174,7 +174,7 @@ const Index = () => {
             Mirror Booths · 360 Spinners · Custom Branding · Instant Prints
           </motion.p>
           <motion.div variants={fadeInUp} className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="https://wa.me/96170222018" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-gradient-gold px-8 font-body text-base font-semibold text-primary-foreground hover:opacity-90">
                 Get a Quote
               </Button>
@@ -398,7 +398,7 @@ const Index = () => {
               Get a personalized quote in minutes. Our team is ready to help you choose the perfect photobooth for your event.
             </motion.p>
             <motion.div variants={fadeInUp} className="mt-8">
-              <a href="https://wa.me/96170222018" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-gradient-gold px-8 font-body text-base font-semibold text-primary-foreground hover:opacity-90">
                   Get a Free Quote on WhatsApp
                 </Button>

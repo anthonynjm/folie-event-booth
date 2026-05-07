@@ -53,12 +53,12 @@ const Header = () => {
 
         {/* CTA + Phone */}
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="tel:+96170222018" className="flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary">
+          <a href="tel:+96171582222" className="flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary">
             <Phone className="h-4 w-4" />
-            70 222 018
+            71 582 222
           </a>
           <ThemeToggle />
-          <a href="https://wa.me/96170222018" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer">
             <Button className="bg-gradient-gold font-body text-sm font-semibold text-primary-foreground hover:opacity-90">
               Get a Quote
             </Button>
@@ -94,12 +94,12 @@ const Header = () => {
               </Link>
             ))}
             <div className="mt-3 flex items-center gap-3 border-t border-border/50 pt-4">
-              <a href="tel:+96170222018" className="flex items-center gap-1.5 text-sm text-muted-foreground">
+              <a href="tel:+96171582222" className="flex items-center gap-1.5 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                70 222 018
+                71 582 222
               </a>
               <ThemeToggle />
-              <a href="https://wa.me/96170222018" target="_blank" rel="noopener noreferrer" className="ml-auto">
+              <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer" className="ml-auto">
                 <Button className="bg-gradient-gold font-body text-sm font-semibold text-primary-foreground">
                   Get a Quote
                 </Button>

@@ -25,7 +25,7 @@ const Contact = () => {
       p.event_date && `Date: ${p.event_date}`,
       p.message && `Message: ${p.message}`,
     ].filter(Boolean).join('\n');
-    window.open(`https://wa.me/96170222018?text=${encodeURIComponent(lines)}`, '_blank');
+    window.open(`https://wa.me/96171582222?text=${encodeURIComponent(lines)}`, '_blank');
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -120,7 +120,7 @@ const Contact = () => {
 
           {/* Info */}
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0, transition: { delay: 0.3 } }} className="space-y-6">
-            <a href="https://wa.me/96170222018" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="w-full bg-gradient-gold font-body text-base font-semibold text-primary-foreground hover:opacity-90">
                 <MessageCircle className="mr-2 h-5 w-5" /> Chat on WhatsApp
               </Button>
@@ -130,7 +130,7 @@ const Contact = () => {
                 <Phone className="h-5 w-5 text-primary" />
                 <div>
                   <p className="font-body text-xs text-muted-foreground">Phone</p>
-                  <a href="tel:+96170222018" className="font-body text-sm font-medium text-foreground hover:text-primary">70 222 018</a>
+                  <a href="tel:+96171582222" className="font-body text-sm font-medium text-foreground hover:text-primary">71 582 222</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
