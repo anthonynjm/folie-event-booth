@@ -78,7 +78,9 @@ const testimonials = [
 ];
 
 const locations = [
-  'Beirut', 'Jounieh', 'Byblos', 'Mount Lebanon', 'Batroun', 'Tripoli', 'Sidon', 'Zahle', 'Faraya', 'UAE',
+  'Beirut', 'Damour', 'Khalde', 'Bchamoun', 'Aley', 'Beit Meri', 'Broummana',
+  'Jounieh', 'Ghazir', 'Tabarja', 'Jbeil / Byblos', 'Amchit', 'Batroun',
+  'Mount Lebanon', 'Kesrwan', 'Metn', 'Tripoli', 'Sidon', 'Zahle', 'Faraya', 'UAE',
 ];
 
 const localBusinessSchema = {
@@ -86,8 +88,8 @@ const localBusinessSchema = {
   '@type': 'LocalBusiness',
   '@id': 'https://www.lafolieentertainment.com/#business',
   name: 'La Folie Entertainment',
-  description: 'Premium photobooth rentals for weddings, corporate events, and parties across Lebanon and the UAE.',
-  telephone: '+961-70-222-018',
+  description: 'Lebanon\'s #1 photobooth rental company. Mirror booths, 360 spinners, glambots, and vintage photobooths for weddings, corporate events, and parties from Damour to Batroun and across all Lebanon.',
+  telephone: '+961-71-582-222',
   url: 'https://www.lafolieentertainment.com',
   image: 'https://www.lafolieentertainment.com/og-default.jpg',
   address: {
@@ -103,6 +105,13 @@ const localBusinessSchema = {
   areaServed: [
     { '@type': 'Country', name: 'Lebanon' },
     { '@type': 'Country', name: 'United Arab Emirates' },
+    { '@type': 'City', name: 'Beirut' },
+    { '@type': 'City', name: 'Jounieh' },
+    { '@type': 'City', name: 'Byblos' },
+    { '@type': 'City', name: 'Batroun' },
+    { '@type': 'City', name: 'Damour' },
+    { '@type': 'City', name: 'Broummana' },
+    { '@type': 'City', name: 'Aley' },
   ],
   priceRange: '$$',
   openingHoursSpecification: {
@@ -128,6 +137,39 @@ const localBusinessSchema = {
   },
 };
 
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Photobooth Rental Lebanon',
+  brand: { '@type': 'Brand', name: 'La Folie Entertainment' },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '150',
+    bestRating: '5',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Sara M.' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5' },
+      reviewBody: 'La Folie made our wedding reception absolutely magical. Every guest loved the mirror booth and the prints were stunning!',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Karim H.' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5' },
+      reviewBody: 'Professional setup, amazing quality, and our branded photos were shared across social media instantly. Highly recommend!',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Nadia R.' },
+      reviewRating: { '@type': 'Rating', ratingValue: '5' },
+      reviewBody: 'The 360 booth was the highlight of my party! Everyone was obsessed with the slow-motion videos.',
+    },
+  ],
+};
+
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -144,11 +186,11 @@ const Index = () => {
   return (
     <Layout>
       <SEOHead
-        title="La Folie Entertainment — Premium Photobooth Rental in Lebanon"
-        description="Rent mirror photobooths and 360 spinners for weddings, corporate events, and parties across Lebanon. Instant prints, custom branding, premium experience. Book now!"
+        title="Photobooth Rental Lebanon | Mirror Booth, 360 Spinner & Glambot — La Folie"
+        description="#1 photobooth rental in Lebanon. Mirror booths, 360 spinners, glambots for weddings & events from Damour to Batroun. Instant prints, custom branding. Get a free quote!"
         canonical="/"
-        jsonLd={[localBusinessSchema, websiteSchema]}
-        keywords="photobooth rental Lebanon, photobooth Lebanon, photo booth Beirut, rent photobooth Lebanon, mirror photobooth Lebanon, 360 photobooth Lebanon, glambot Lebanon, wedding photobooth Lebanon, corporate photobooth Lebanon"
+        jsonLd={[localBusinessSchema, websiteSchema, reviewSchema]}
+        keywords="photobooth rental Lebanon, photobooth Lebanon, photo booth Beirut, rent photobooth Lebanon, mirror photobooth Lebanon, 360 photobooth Lebanon, glambot Lebanon, wedding photobooth Lebanon, corporate photobooth Lebanon, photobooth Jounieh, photobooth Byblos, photobooth Batroun, photobooth Damour, selfie station Lebanon, photo booth rental near me Lebanon, best photobooth Lebanon"
       />
 
       {/* Hero */}
@@ -167,8 +209,8 @@ const Index = () => {
             Premium Photobooth Rentals
           </motion.p>
           <motion.h1 variants={fadeInUp} className="mt-4 font-display text-4xl font-bold leading-tight md:text-6xl lg:text-7xl">
-            Lebanon's Premium<br />
-            <span className="text-gradient-gold">Photobooth Experience</span>
+            #1 Photobooth Rental<br />
+            <span className="text-gradient-gold">in Lebanon</span>
           </motion.h1>
           <motion.p variants={fadeInUp} className="mx-auto mt-6 max-w-2xl font-body text-base text-muted-foreground md:text-lg">
             Mirror Booths · 360 Spinners · Custom Branding · Instant Prints
@@ -366,9 +408,9 @@ const Index = () => {
         <div className="container text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             <motion.p variants={fadeInUp} className="font-body text-sm font-semibold uppercase tracking-[0.2em] text-primary">Coverage</motion.p>
-            <motion.h2 variants={fadeInUp} className="mt-3 font-display text-3xl font-bold md:text-4xl">Serving All of Lebanon & UAE</motion.h2>
+            <motion.h2 variants={fadeInUp} className="mt-3 font-display text-3xl font-bold md:text-4xl">Photobooth Rental — Damour to Batroun & All Lebanon</motion.h2>
             <motion.p variants={fadeInUp} className="mx-auto mt-4 max-w-xl font-body text-sm text-muted-foreground">
-              We deliver and set up premium photobooth experiences at venues across Lebanon and the United Arab Emirates.
+              We deliver and set up premium photobooth experiences at venues across Lebanon — from Damour and Beirut through Jounieh and Byblos to Batroun — plus the UAE.
             </motion.p>
           </motion.div>
           <motion.div

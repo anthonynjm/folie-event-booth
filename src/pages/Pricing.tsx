@@ -45,11 +45,11 @@ const jsonLd = {
 const Pricing = () => (
   <Layout>
     <SEOHead
-      title="Photobooth Rental Prices Lebanon — Packages & Quotes"
-      description="Explore photobooth rental packages from La Folie Entertainment. Essential, Premium, and Ultimate plans for events across Lebanon. Get a free quote."
+      title="Photobooth Rental Prices Lebanon — Affordable Packages | La Folie"
+      description="Photobooth rental packages starting from Essential to Ultimate. Mirror booth, 360 spinner, glambot pricing for weddings & events in Lebanon. Get a free quote today!"
       canonical="/pricing"
       jsonLd={jsonLd}
-      keywords="photobooth rental prices Lebanon, how much does a photobooth cost in Lebanon, photobooth packages Beirut, photobooth rental near me Lebanon"
+      keywords="photobooth rental prices Lebanon, how much does a photobooth cost in Lebanon, photobooth packages Beirut, photobooth rental near me Lebanon, cheap photobooth Lebanon, affordable photobooth Lebanon, mirror booth price Lebanon"
       breadcrumbs={[{ name: 'Pricing', href: '/pricing' }]}
     />
     <section className="py-16 md:py-24">

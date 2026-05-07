@@ -13,6 +13,11 @@ const faqs = [
   { q: 'How do guests receive their photos?', a: 'Guests receive instant high-quality prints on the spot. They can also get digital copies via QR code, email, or SMS for easy social media sharing. All photos are available in full resolution.' },
   { q: 'What is the difference between a mirror photobooth and a 360 photobooth?', a: 'The mirror photobooth is a full-length interactive mirror with touchscreen animations that takes photos and prints them instantly. The 360 photobooth captures slow-motion video as a camera arm spins around guests on an elevated platform — perfect for viral social content.' },
   { q: 'How far in advance should I book?', a: 'We recommend booking at least 2–4 weeks in advance, especially during peak wedding and event season (May–October). Popular dates fill up quickly, so the earlier you book, the better.' },
+  { q: 'Do you provide photobooth services from Damour to Batroun?', a: 'Yes! We cover the entire Lebanese coast from Damour through Beirut, Jounieh, Jbeil/Byblos, and all the way to Batroun. We also serve Mount Lebanon areas including Aley, Broummana, Beit Meri, and Faraya. Delivery is included in most packages for these areas.' },
+  { q: 'What is a glambot or 360 spinner booth?', a: 'A glambot (360 spinner) is a camera mounted on a rotating arm that captures slow-motion video as it spins around guests standing on an elevated platform. The result is a dramatic, cinematic clip perfect for sharing on Instagram and TikTok. La Folie Entertainment offers professional glambot rentals for events across Lebanon.' },
+  { q: 'Can I rent a photobooth for a wedding in Jounieh or Byblos?', a: 'Absolutely! Jounieh, Byblos, and the entire Kesrwan-Jbeil coast are among our most popular delivery areas. We set up at all major wedding venues in the region including beachfront venues, hotels, and private estates.' },
+  { q: 'Do you offer photobooth rental for corporate events in Beirut?', a: 'Yes, we specialize in corporate event photobooths in Beirut and across Lebanon. Our booths can be fully branded with your company logo, event theme, and custom photo templates. Perfect for product launches, brand activations, conferences, and end-of-year parties.' },
+  { q: 'What makes La Folie different from other photobooth companies in Lebanon?', a: 'La Folie Entertainment offers the widest variety of photobooth experiences in Lebanon — 10 different booth types including Mirror, Magazine, Vintage, Room, Bike, LiveBooth, Audio & Video Guest Books, and Cupcake ATM. With over 500 events completed and a 5-star rating, we deliver premium quality, on-time setup, and a dedicated attendant at every event.' },
 ];
 
 const jsonLd = {
@@ -28,11 +33,11 @@ const jsonLd = {
 const FAQ = () => (
   <Layout>
     <SEOHead
-      title="Photobooth Rental FAQ — La Folie Entertainment Lebanon"
-      description="Answers to common questions about renting a photobooth in Lebanon. Pricing, setup, delivery, customization, and more."
+      title="Photobooth Rental FAQ Lebanon — Pricing, Setup, Delivery | La Folie"
+      description="Everything you need to know about renting a photobooth in Lebanon. Pricing, setup, delivery from Damour to Batroun, customization, mirror booth vs 360 spinner, and more."
       canonical="/faq"
       jsonLd={jsonLd}
-      keywords="photobooth rental FAQ Lebanon, how much does photobooth cost Lebanon, photobooth setup time, photobooth delivery Beirut"
+      keywords="photobooth rental FAQ Lebanon, how much does photobooth cost Lebanon, photobooth setup time, photobooth delivery Beirut, photobooth Jounieh, photobooth Byblos, photobooth Batroun, glambot Lebanon, 360 spinner Lebanon"
       breadcrumbs={[{ name: 'FAQ', href: '/faq' }]}
     />
     <section className="py-16 md:py-24">

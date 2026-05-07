@@ -158,11 +158,11 @@ const galleryPreview = [e1, e2, e3, e4];
 const Services = () => (
   <Layout>
     <SEOHead
-      title="Photobooth & Games Services Lebanon — La Folie Entertainment"
-      description="10 photobooth experiences — LiveBooth, Mirror, Magazine, Vintage, Room, Bike, Audio & Video guest books, Cupcake ATM — plus interactive games. Make your event unforgettable."
+      title="10 Photobooth Types for Rent in Lebanon — Mirror, 360, Glambot | La Folie"
+      description="Rent from 10 photobooth experiences in Lebanon: Mirror Booth, 360 Spinner, Glambot, LiveBooth, Vintage, Magazine, Room Booth, Bike, Audio & Video Guest Books. Serving Damour to Batroun."
       canonical="/services"
       jsonLd={serviceSchemas}
-      keywords="photobooth Lebanon, mirror booth Beirut, magazine booth Lebanon, vintage booth, 360 booth, audio guest book Lebanon, video guest book, cupcake ATM Lebanon, interactive games events"
+      keywords="photobooth Lebanon, mirror booth Beirut, mirror booth Lebanon, magazine booth Lebanon, vintage booth Lebanon, 360 booth Lebanon, glambot Lebanon, audio guest book Lebanon, video guest book Lebanon, cupcake ATM Lebanon, photobooth rental Jounieh, photobooth rental Byblos, interactive games events Lebanon"
       breadcrumbs={[{ name: 'Services', href: '/services' }]}
     />
 

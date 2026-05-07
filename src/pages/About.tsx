@@ -10,10 +10,10 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } }
 const About = () => (
   <Layout>
     <SEOHead
-      title="About La Folie Entertainment — Premium Photobooth Company Lebanon"
-      description="Learn about La Folie Entertainment, Lebanon's premium photobooth rental company. Years of experience creating unforgettable event moments."
+      title="About La Folie Entertainment — #1 Photobooth Company in Lebanon"
+      description="La Folie Entertainment: Lebanon's leading photobooth rental company with 500+ events, 10 booth types, and 5-star reviews. Based in Beirut, serving Damour to Batroun."
       canonical="/about"
-      keywords="best photobooth company Lebanon, photobooth rental company Beirut, La Folie Entertainment about"
+      keywords="best photobooth company Lebanon, photobooth rental company Beirut, La Folie Entertainment, top photobooth Lebanon, premium photobooth Lebanon"
       breadcrumbs={[{ name: 'About', href: '/about' }]}
     />
     <section className="py-16 md:py-24">

@@ -60,10 +60,10 @@ const Contact = () => {
   return (
   <Layout>
     <SEOHead
-      title="Contact La Folie Entertainment — Book a Photobooth in Lebanon"
-      description="Get in touch with La Folie Entertainment to book a photobooth for your event. WhatsApp, phone, or email. Serving all of Lebanon and UAE."
+      title="Book a Photobooth in Lebanon — Get a Free Quote | La Folie Entertainment"
+      description="Book a photobooth for your wedding, corporate event, or party in Lebanon. WhatsApp, phone, or email. Free quotes. Serving Damour to Batroun and all Lebanon."
       canonical="/contact"
-      keywords="book photobooth Lebanon, contact photobooth rental Beirut, photobooth rental Dubai UAE"
+      keywords="book photobooth Lebanon, contact photobooth rental Beirut, photobooth quote Lebanon, rent photobooth wedding Lebanon, photobooth rental Jounieh, photobooth rental Byblos"
       breadcrumbs={[{ name: 'Contact', href: '/contact' }]}
     />
     <section className="py-16 md:py-24">
