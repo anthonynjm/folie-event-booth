@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { useQuoteDialog } from '@/components/QuoteDialog';
 import Layout from '@/components/Layout';
 import SEOHead from '@/components/SEOHead';
 import { Check } from 'lucide-react';
@@ -42,7 +43,10 @@ const jsonLd = {
   })),
 };
 
-const Pricing = () => (
+const Pricing = () => {
+  const quoteDialog = useQuoteDialog();
+
+  return (
   <Layout>
     <SEOHead
       title="Photobooth Rental Prices Lebanon — Affordable Packages | La Folie"
@@ -84,11 +88,12 @@ const Pricing = () => (
                 ))}
               </ul>
               <div className="mt-6">
-                <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className={`w-full font-body font-semibold ${pkg.popular ? 'bg-gradient-gold text-primary-foreground hover:opacity-90' : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'}`}>
-                    Get a Quote
-                  </Button>
-                </a>
+                <Button
+                  className={`w-full font-body font-semibold ${pkg.popular ? 'bg-gradient-gold text-primary-foreground hover:opacity-90' : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'}`}
+                  onClick={() => quoteDialog.open()}
+                >
+                  Get a Quote
+                </Button>
               </div>
             </motion.div>
           ))}
@@ -96,6 +101,7 @@ const Pricing = () => (
       </div>
     </section>
   </Layout>
-);
+  );
+};
 
 export default Pricing;

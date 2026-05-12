@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Camera, Star, Users, Image as ImageIcon, ChevronRight, Sparkles } from 'lucide-react';
+import { useQuoteDialog } from '@/components/QuoteDialog';
 import Layout from '@/components/Layout';
 import SEOHead from '@/components/SEOHead';
 import InstagramEmbed from '@/components/InstagramEmbed';
@@ -183,6 +184,8 @@ const websiteSchema = {
 };
 
 const Index = () => {
+  const quoteDialog = useQuoteDialog();
+
   return (
     <Layout>
       <SEOHead
@@ -216,11 +219,13 @@ const Index = () => {
             Mirror Booths · 360 Spinners · Custom Branding · Instant Prints
           </motion.p>
           <motion.div variants={fadeInUp} className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-gradient-gold px-8 font-body text-base font-semibold text-primary-foreground hover:opacity-90">
-                Get a Quote
-              </Button>
-            </a>
+            <Button
+              size="lg"
+              className="bg-gradient-gold px-8 font-body text-base font-semibold text-primary-foreground hover:opacity-90"
+              onClick={() => quoteDialog.open()}
+            >
+              Get a Quote
+            </Button>
             <Link to="/services">
               <Button size="lg" variant="outline" className="border-primary/30 px-8 font-body text-base text-foreground hover:bg-primary/10">
                 See Our Booths
