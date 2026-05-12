@@ -230,7 +230,7 @@ const Services = () => (
 
         {/* Groovy Rent cross-link */}
         <div className="mt-10">
-          <
+          <a
             href="https://groovyrent.com"
             target="_blank"
             rel="noopener noreferrer"
