@@ -229,14 +229,8 @@ const Services = () => (
         </motion.div>
 
         {/* Groovy Rent cross-link */}
-        <motion.div
-          className="mt-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-        >
-          <a
+        <div className="mt-10">
+          <
             href="https://groovyrent.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -269,7 +263,7 @@ const Services = () => (
               </div>
             </div>
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
 
