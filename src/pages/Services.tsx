@@ -230,44 +230,38 @@ const Services = () => {
               </div>
             </motion.article>
           ))}
-        </motion.div>
 
-        {/* Groovy Rent cross-link */}
-        <div className="mt-10">
-          <a
-            href="https://groovyrent.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block overflow-hidden rounded-lg border border-primary/30 bg-gradient-to-r from-card to-background transition-all hover:border-primary/60 hover:shadow-lg"
+          {/* Groovy Rent cross-link — styled like a booth card */}
+          <motion.article
+            variants={fadeInUp}
+            className="group flex flex-col overflow-hidden rounded-lg border border-border/50 bg-card transition-all hover:border-primary/40"
           >
-            <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:p-10">
-              <div className="flex shrink-0 gap-3">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                  <Snowflake className="h-7 w-7 text-primary" />
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                  <Music className="h-7 w-7 text-primary" />
-                </div>
-              </div>
-              <div className="text-center md:text-left">
-                <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                  From our sister brand
-                </p>
-                <h3 className="mt-1 font-display text-2xl font-bold">
-                  Need AC & Sound for Bride & Groom Houses?
-                </h3>
-                <p className="mt-2 font-body text-sm text-muted-foreground">
-                  Groovy Rent provides Hisense AC units, Bose & Samsung speakers with iPad — delivered, installed, and picked up.
-                </p>
-              </div>
-              <div className="shrink-0">
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 px-5 py-2.5 font-body text-sm font-semibold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  Visit groovyrent.com <ChevronRight className="h-4 w-4" />
-                </span>
+            <div className="flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-primary/5 to-primary/15">
+              <div className="flex gap-4">
+                <Snowflake className="h-16 w-16 text-primary/60" />
+                <Music className="h-16 w-16 text-primary/60" />
               </div>
             </div>
-          </a>
-        </div>
+            <div className="flex flex-1 flex-col p-5">
+              <p className="font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">From our sister brand</p>
+              <h2 className="mt-1 font-display text-xl font-bold uppercase tracking-wide">AC & Sound Rental</h2>
+              <p className="mt-1 font-body text-sm italic text-primary">Comfort for bride & groom houses.</p>
+              <p className="mt-3 font-body text-sm leading-relaxed text-muted-foreground">
+                Hisense AC units, Bose & Samsung speakers with iPad — delivered, installed, and picked up.
+              </p>
+              <p className="mt-3 font-body text-xs text-muted-foreground">
+                <strong className="text-foreground">Ideal for:</strong> Weddings, engagements, house events
+              </p>
+              <div className="mt-auto pt-5">
+                <a href="https://groovyrent.com" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full bg-gradient-gold font-body font-semibold text-primary-foreground hover:opacity-90">
+                    Visit groovyrent.com
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </motion.article>
+        </motion.div>
       </div>
     </section>
 
