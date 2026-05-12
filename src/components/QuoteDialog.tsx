@@ -32,11 +32,13 @@ export function useQuoteDialog() {
 export function QuoteDialogProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
+  const [dates, setDates] = useState<string[]>(['']);
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
 
   function open(preselectedService?: string) {
     setSelected(preselectedService ? [preselectedService] : []);
+    setDates(['']);
     setSent(false);
     setIsOpen(true);
   }
@@ -53,6 +55,7 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
     const data = new FormData(form);
     const payload = Object.fromEntries(data.entries());
     const services = selected.length > 0 ? selected.join(', ') : 'General Inquiry';
+    const eventDates = dates.filter(Boolean).join(', ') || '—';
 
     setSubmitting(true);
     fetch(FORM_ENDPOINT, {
@@ -61,6 +64,7 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
       body: JSON.stringify({
         ...payload,
         Services: services,
+        'Event Date(s)': eventDates,
         _subject: `La Folie Quote — ${services}`,
         _template: 'table',
       }),
@@ -69,6 +73,7 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
         setSent(true);
         form.reset();
         setSelected([]);
+        setDates(['']);
         toast.success("Quote request sent! We'll be in touch shortly.");
       })
       .catch(() => {
@@ -78,7 +83,7 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
           payload.phone && `Phone: ${payload.phone}`,
           payload.email && `Email: ${payload.email}`,
           `Services: ${services}`,
-          payload.event_date && `Date: ${payload.event_date}`,
+          eventDates !== '—' && `Date(s): ${eventDates}`,
           payload.message && `Message: ${payload.message}`,
         ].filter(Boolean).join('\n');
         window.open(`https://wa.me/96171582222?text=${encodeURIComponent(lines)}`, '_blank');
@@ -188,13 +193,35 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="quote-date" className="font-body text-sm font-medium text-foreground">Event Date</label>
-                  <input
-                    id="quote-date"
-                    name="event_date"
-                    type="date"
-                    className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary"
-                  />
+                  <label className="font-body text-sm font-medium text-foreground">Event Date(s)</label>
+                  <div className="mt-1 space-y-2">
+                    {dates.map((d, i) => (
+                      <div key={i} className="flex gap-2">
+                        <input
+                          type="date"
+                          value={d}
+                          onChange={(e) => setDates((prev) => prev.map((v, j) => (j === i ? e.target.value : v)))}
+                          className="w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary"
+                        />
+                        {dates.length > 1 && (
+                          <button
+                            type="button"
+                            onClick={() => setDates((prev) => prev.filter((_, j) => j !== i))}
+                            className="shrink-0 rounded-md border border-border/50 px-2 font-body text-sm text-muted-foreground hover:border-destructive hover:text-destructive"
+                          >
+                            ✕
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={() => setDates((prev) => [...prev, ''])}
+                      className="font-body text-xs font-medium text-primary hover:underline"
+                    >
+                      + Add another date
+                    </button>
+                  </div>
                 </div>
                 <div>
                   <label htmlFor="quote-type" className="font-body text-sm font-medium text-foreground">Event Type</label>
