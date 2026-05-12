@@ -5,6 +5,20 @@ import { toast } from 'sonner';
 
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/eca45746b19489ba1a44924d06dfee84';
 
+const SERVICES = [
+  'LiveBooth',
+  'Vintage Booth',
+  'Magazine Booth',
+  'Mirror Booth',
+  'Room Booth (Steel)',
+  'Room Booth',
+  'Bike Booth',
+  'Audio Guest Book',
+  'Video Guest Book',
+  'Cupcake ATM Machine',
+  'Interactive Games',
+];
+
 interface QuoteDialogContextType {
   open: (preselectedService?: string) => void;
 }
@@ -17,14 +31,20 @@ export function useQuoteDialog() {
 
 export function QuoteDialogProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [service, setService] = useState('');
+  const [selected, setSelected] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
 
   function open(preselectedService?: string) {
-    setService(preselectedService || '');
+    setSelected(preselectedService ? [preselectedService] : []);
     setSent(false);
     setIsOpen(true);
+  }
+
+  function toggleService(name: string) {
+    setSelected((prev) =>
+      prev.includes(name) ? prev.filter((s) => s !== name) : [...prev, name]
+    );
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -32,6 +52,7 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
     const form = e.currentTarget;
     const data = new FormData(form);
     const payload = Object.fromEntries(data.entries());
+    const services = selected.length > 0 ? selected.join(', ') : 'General Inquiry';
 
     setSubmitting(true);
     fetch(FORM_ENDPOINT, {
@@ -39,13 +60,15 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
         ...payload,
-        _subject: `La Folie Quote — ${payload.service || 'General Inquiry'}`,
+        Services: services,
+        _subject: `La Folie Quote — ${services}`,
         _template: 'table',
       }),
     })
       .then(() => {
         setSent(true);
         form.reset();
+        setSelected([]);
         toast.success("Quote request sent! We'll be in touch shortly.");
       })
       .catch(() => {
@@ -54,7 +77,7 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
           payload.name && `Name: ${payload.name}`,
           payload.phone && `Phone: ${payload.phone}`,
           payload.email && `Email: ${payload.email}`,
-          payload.service && `Service: ${payload.service}`,
+          `Services: ${services}`,
           payload.event_date && `Date: ${payload.event_date}`,
           payload.message && `Message: ${payload.message}`,
         ].filter(Boolean).join('\n');
@@ -93,29 +116,40 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
             </div>
           ) : (
             <form className="space-y-4" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="quote-service" className="font-body text-sm font-medium text-foreground">Service</label>
-                <select
-                  id="quote-service"
-                  name="service"
-                  value={service}
-                  onChange={(e) => setService(e.target.value)}
-                  className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary"
-                >
-                  <option value="">General Inquiry</option>
-                  <option>LiveBooth</option>
-                  <option>Vintage Booth</option>
-                  <option>Magazine Booth</option>
-                  <option>Mirror Booth</option>
-                  <option>Room Booth (Steel)</option>
-                  <option>Room Booth</option>
-                  <option>Bike Booth</option>
-                  <option>Audio Guest Book</option>
-                  <option>Video Guest Book</option>
-                  <option>Cupcake ATM Machine</option>
-                  <option>Interactive Games</option>
-                </select>
-              </div>
+              <fieldset>
+                <legend className="font-body text-sm font-medium text-foreground">Services</legend>
+                <div className="mt-2 grid grid-cols-2 gap-2">
+                  {SERVICES.map((name) => (
+                    <label
+                      key={name}
+                      className={`flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 font-body text-xs transition-colors ${
+                        selected.includes(name)
+                          ? 'border-primary bg-primary/10 text-foreground'
+                          : 'border-border/50 bg-secondary text-muted-foreground hover:border-primary/40'
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selected.includes(name)}
+                        onChange={() => toggleService(name)}
+                        className="sr-only"
+                      />
+                      <span className={`flex h-4 w-4 shrink-0 items-center justify-center rounded border ${
+                        selected.includes(name)
+                          ? 'border-primary bg-primary text-primary-foreground'
+                          : 'border-border'
+                      }`}>
+                        {selected.includes(name) && (
+                          <svg className="h-3 w-3" viewBox="0 0 12 12" fill="none">
+                            <path d="M2.5 6L5 8.5L9.5 3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
+                      </span>
+                      {name}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
               <div>
                 <label htmlFor="quote-name" className="font-body text-sm font-medium text-foreground">Name</label>
                 <input
