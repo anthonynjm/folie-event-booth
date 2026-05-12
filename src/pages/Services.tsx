@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronRight, Clock, Printer, Truck, Lightbulb, Users, Gift, Snowflake, Music } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useQuoteDialog } from '@/components/QuoteDialog';
 import Layout from '@/components/Layout';
 import SEOHead from '@/components/SEOHead';
 import liveBoothImg from '@/assets/booths/livebooth.webp';
@@ -21,7 +22,6 @@ import e4 from '@/assets/gallery/e4.webp';
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 
-const WHATSAPP = 'https://wa.me/96171582222';
 
 interface BoothService {
   title: string;
@@ -155,7 +155,10 @@ const serviceSchemas = booths.map((s) => ({
 
 const galleryPreview = [e1, e2, e3, e4];
 
-const Services = () => (
+const Services = () => {
+  const quoteDialog = useQuoteDialog();
+
+  return (
   <Layout>
     <SEOHead
       title="10 Photobooth Types for Rent in Lebanon — Mirror, 360, Glambot | La Folie"
@@ -217,11 +220,12 @@ const Services = () => (
                   <strong className="text-foreground">Ideal for:</strong> {booth.ideal}
                 </p>
                 <div className="mt-auto pt-5">
-                  <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-gradient-gold font-body font-semibold text-primary-foreground hover:opacity-90">
-                      Book This Booth
-                    </Button>
-                  </a>
+                  <Button
+                    className="w-full bg-gradient-gold font-body font-semibold text-primary-foreground hover:opacity-90"
+                    onClick={() => quoteDialog.open(booth.title)}
+                  >
+                    Book This Booth
+                  </Button>
                 </div>
               </div>
             </motion.article>
@@ -319,11 +323,12 @@ const Services = () => (
             ))}
           </motion.ul>
           <motion.div variants={fadeInUp} className="mt-8">
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
-              <Button className="bg-gradient-gold font-body font-semibold text-primary-foreground hover:opacity-90">
-                Ask About Games
-              </Button>
-            </a>
+            <Button
+              className="bg-gradient-gold font-body font-semibold text-primary-foreground hover:opacity-90"
+              onClick={() => quoteDialog.open('Interactive Games')}
+            >
+              Ask About Games
+            </Button>
           </motion.div>
         </motion.div>
         <motion.div
@@ -367,16 +372,19 @@ const Services = () => (
             Enjoy a special combo discount when you book both our photobooth and games packages together.
           </motion.p>
           <motion.div variants={fadeInUp} className="mt-8">
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-gradient-gold px-8 font-body font-semibold text-primary-foreground hover:opacity-90">
-                Get Combo Pricing
-              </Button>
-            </a>
+            <Button
+              size="lg"
+              className="bg-gradient-gold px-8 font-body font-semibold text-primary-foreground hover:opacity-90"
+              onClick={() => quoteDialog.open()}
+            >
+              Get Combo Pricing
+            </Button>
           </motion.div>
         </motion.div>
       </div>
     </section>
   </Layout>
-);
+  );
+};
 
 export default Services;

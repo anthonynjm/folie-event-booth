@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { useQuoteDialog } from '@/components/QuoteDialog';
 import logo from '@/assets/logo.png';
 
 const navLinks = [
@@ -18,6 +19,7 @@ const navLinks = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const quoteDialog = useQuoteDialog();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 border-b border-border/50 bg-background/80 backdrop-blur-xl">
@@ -58,11 +60,12 @@ const Header = () => {
             71 582 222
           </a>
           <ThemeToggle />
-          <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-gold font-body text-sm font-semibold text-primary-foreground hover:opacity-90">
-              Get a Quote
-            </Button>
-          </a>
+          <Button
+            className="bg-gradient-gold font-body text-sm font-semibold text-primary-foreground hover:opacity-90"
+            onClick={() => quoteDialog.open()}
+          >
+            Get a Quote
+          </Button>
         </div>
 
         {/* Mobile toggle */}
@@ -99,11 +102,12 @@ const Header = () => {
                 71 582 222
               </a>
               <ThemeToggle />
-              <a href="https://wa.me/96171582222" target="_blank" rel="noopener noreferrer" className="ml-auto">
-                <Button className="bg-gradient-gold font-body text-sm font-semibold text-primary-foreground">
-                  Get a Quote
-                </Button>
-              </a>
+              <Button
+                className="ml-auto bg-gradient-gold font-body text-sm font-semibold text-primary-foreground"
+                onClick={() => { quoteDialog.open(); setIsOpen(false); }}
+              >
+                Get a Quote
+              </Button>
             </div>
           </nav>
         </div>

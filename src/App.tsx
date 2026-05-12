@@ -6,6 +6,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { QuoteDialogProvider } from "@/components/QuoteDialog";
 import Index from "./pages/Index";
 
 const Services = lazy(() => import("./pages/Services"));
@@ -34,6 +35,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <QuoteDialogProvider>
           <BrowserRouter>
             <Suspense fallback={<PageFallback />}>
               <Routes>
@@ -53,6 +55,7 @@ const App = () => (
               </Routes>
             </Suspense>
           </BrowserRouter>
+          </QuoteDialogProvider>
         </TooltipProvider>
       </QueryClientProvider>
     </ThemeProvider>
