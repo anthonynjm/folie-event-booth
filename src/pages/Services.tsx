@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronRight, Clock, Printer, Truck, Lightbulb, Users, Gift } from 'lucide-react';
+import { ChevronRight, Clock, Printer, Truck, Lightbulb, Users, Gift, Snowflake, Music } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/Layout';
 import SEOHead from '@/components/SEOHead';
@@ -226,6 +226,49 @@ const Services = () => (
               </div>
             </motion.article>
           ))}
+        </motion.div>
+
+        {/* Groovy Rent cross-link */}
+        <motion.div
+          className="mt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <a
+            href="https://groovyrent.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block overflow-hidden rounded-lg border border-primary/30 bg-gradient-to-r from-card to-background transition-all hover:border-primary/60 hover:shadow-lg"
+          >
+            <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:p-10">
+              <div className="flex shrink-0 gap-3">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                  <Snowflake className="h-7 w-7 text-primary" />
+                </div>
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                  <Music className="h-7 w-7 text-primary" />
+                </div>
+              </div>
+              <div className="text-center md:text-left">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                  From our sister brand
+                </p>
+                <h3 className="mt-1 font-display text-2xl font-bold">
+                  Need AC & Sound for Bride & Groom Houses?
+                </h3>
+                <p className="mt-2 font-body text-sm text-muted-foreground">
+                  Groovy Rent provides Hisense AC units, Bose & Samsung speakers with iPad — delivered, installed, and picked up.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 px-5 py-2.5 font-body text-sm font-semibold text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  Visit groovyrent.com <ChevronRight className="h-4 w-4" />
+                </span>
+              </div>
+            </div>
+          </a>
         </motion.div>
       </div>
     </section>
