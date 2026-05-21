@@ -7,12 +7,44 @@ import heroBg from '@/assets/hero-bg.jpg';
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
 
+const aboutPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About La Folie Entertainment',
+  description: 'La Folie Entertainment is Lebanon\'s leading photobooth rental company with 500+ events completed, 10 booth types, and 5-star reviews. Based in Beirut, serving all Lebanon and UAE.',
+  url: 'https://www.lafolieentertainment.com/about',
+  mainEntity: {
+    '@type': 'LocalBusiness',
+    name: 'La Folie Entertainment',
+    url: 'https://www.lafolieentertainment.com',
+    telephone: '+961-71-582-222',
+    foundingLocation: {
+      '@type': 'Place',
+      name: 'Beirut, Lebanon',
+    },
+    description: 'Lebanon\'s #1 photobooth rental company offering 10 booth types including Mirror Booth, 360 Spinner, Glambot, LiveBooth, Vintage, Magazine, Room Booth, Bike Booth, Audio & Video Guest Books, and Cupcake ATM.',
+    areaServed: [
+      { '@type': 'Country', name: 'Lebanon' },
+      { '@type': 'Country', name: 'United Arab Emirates' },
+    ],
+    knowsAbout: [
+      'Photobooth Rental',
+      'Event Entertainment',
+      'Wedding Photography',
+      'Corporate Event Entertainment',
+      '360 Photo Booth',
+      'Mirror Photo Booth',
+    ],
+  },
+};
+
 const About = () => (
   <Layout>
     <SEOHead
       title="About La Folie Entertainment — #1 Photobooth Company in Lebanon"
       description="La Folie Entertainment: Lebanon's leading photobooth rental company with 500+ events, 10 booth types, and 5-star reviews. Based in Beirut, serving Damour to Batroun."
       canonical="/about"
+      jsonLd={aboutPageSchema}
       keywords="best photobooth company Lebanon, photobooth rental company Beirut, La Folie Entertainment, top photobooth Lebanon, premium photobooth Lebanon"
       breadcrumbs={[{ name: 'About', href: '/about' }]}
     />

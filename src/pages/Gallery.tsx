@@ -9,6 +9,23 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } 
 
 const categories = ['All', 'Weddings', 'Corporate', 'Birthdays', 'Brand Activations'];
 
+const imageGallerySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageGallery',
+  name: 'La Folie Entertainment Photobooth Gallery',
+  description: 'Photos from photobooth events across Lebanon including weddings, corporate events, birthdays, and brand activations by La Folie Entertainment.',
+  url: 'https://www.lafolieentertainment.com/gallery',
+  creator: {
+    '@type': 'LocalBusiness',
+    name: 'La Folie Entertainment',
+    url: 'https://www.lafolieentertainment.com',
+  },
+  about: {
+    '@type': 'Thing',
+    name: 'Photobooth rental events in Lebanon',
+  },
+};
+
 const Gallery = () => {
   const events = useEvents();
   const [filter, setFilter] = useState('All');
@@ -23,6 +40,7 @@ const Gallery = () => {
         title="Photobooth Gallery — La Folie Entertainment Lebanon"
         description="Browse photos from our photobooth events across Lebanon. Weddings, corporate events, birthdays, and brand activations."
         canonical="/gallery"
+        jsonLd={imageGallerySchema}
         keywords="photobooth event photos Lebanon, mirror booth photos Beirut, 360 booth video Lebanon, event gallery photobooth"
         breadcrumbs={[{ name: 'Gallery', href: '/gallery' }]}
       />

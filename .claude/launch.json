@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "folie-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "--host", "--port", "8090"],
+      "port": 8090
+    }
+  ]
+}

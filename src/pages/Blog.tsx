@@ -37,12 +37,42 @@ const posts = [
   },
 ];
 
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'La Folie Entertainment Blog',
+  description: 'Tips on choosing the right photobooth, event planning ideas, and inspiration for weddings and parties in Lebanon.',
+  url: 'https://www.lafolieentertainment.com/blog',
+  publisher: {
+    '@type': 'Organization',
+    name: 'La Folie Entertainment',
+    url: 'https://www.lafolieentertainment.com',
+  },
+  blogPost: posts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      '@type': 'Organization',
+      name: 'La Folie Entertainment',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'La Folie Entertainment',
+      url: 'https://www.lafolieentertainment.com',
+    },
+    url: `https://www.lafolieentertainment.com/blog/${post.slug}`,
+  })),
+};
+
 const Blog = () => (
   <Layout>
     <SEOHead
       title="Photobooth Blog — Tips, Guides & Inspiration"
       description="Tips on choosing the right photobooth, event planning ideas, and inspiration for weddings and parties in Lebanon."
       canonical="/blog"
+      jsonLd={blogSchema}
       keywords="photobooth tips Lebanon, wedding photobooth guide, best photobooth company Lebanon, photobooth for wedding Beirut"
       breadcrumbs={[{ name: 'Blog', href: '/blog' }]}
     />

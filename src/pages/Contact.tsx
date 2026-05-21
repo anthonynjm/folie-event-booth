@@ -9,6 +9,36 @@ import { toast } from 'sonner';
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
 
+const contactPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact La Folie Entertainment',
+  description: 'Contact La Folie Entertainment for photobooth rental inquiries in Lebanon. Call +961 71 582 222, email info@lafolieentertainment.com, or WhatsApp us. Based in Beirut, serving all Lebanon and UAE.',
+  url: 'https://www.lafolieentertainment.com/contact',
+  mainEntity: {
+    '@type': 'LocalBusiness',
+    name: 'La Folie Entertainment',
+    telephone: '+961-71-582-222',
+    email: 'info@lafolieentertainment.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Beirut',
+      addressCountry: 'LB',
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Lebanon' },
+      { '@type': 'Country', name: 'United Arab Emirates' },
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+961-71-582-222',
+      contactType: 'customer service',
+      areaServed: ['LB', 'AE'],
+      availableLanguage: ['English', 'Arabic'],
+    },
+  },
+};
+
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/eca45746b19489ba1a44924d06dfee84';
 
 const Contact = () => {
@@ -61,8 +91,9 @@ const Contact = () => {
   <Layout>
     <SEOHead
       title="Book a Photobooth in Lebanon — Get a Free Quote | La Folie Entertainment"
-      description="Book a photobooth for your wedding, corporate event, or party in Lebanon. WhatsApp, phone, or email. Free quotes. Serving Damour to Batroun and all Lebanon."
+      description="Contact La Folie Entertainment at +961 71 582 222 for photobooth rental in Beirut & all Lebanon. WhatsApp, phone, or email. Free quotes for weddings, corporate events & parties."
       canonical="/contact"
+      jsonLd={contactPageSchema}
       keywords="book photobooth Lebanon, contact photobooth rental Beirut, photobooth quote Lebanon, rent photobooth wedding Lebanon, photobooth rental Jounieh, photobooth rental Byblos"
       breadcrumbs={[{ name: 'Contact', href: '/contact' }]}
     />
