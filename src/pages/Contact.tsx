@@ -39,7 +39,7 @@ const contactPageSchema = {
   },
 };
 
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/Anthony-najem@hotmail.com';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/345d1b1f9102f7241d0a4abed79351b7';
 
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);

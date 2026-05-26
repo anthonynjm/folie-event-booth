@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/Anthony-najem@hotmail.com';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/345d1b1f9102f7241d0a4abed79351b7';
 
 const SERVICES = [
   'LiveBooth',
