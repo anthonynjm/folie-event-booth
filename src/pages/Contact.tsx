@@ -39,7 +39,7 @@ const contactPageSchema = {
   },
 };
 
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/eca45746b19489ba1a44924d06dfee84';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/Anthony-najem@hotmail.com';
 
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -75,13 +75,13 @@ const Contact = () => {
           _template: 'table',
         }),
       });
-      if (!res.ok) throw new Error('Request failed');
+      const json = await res.json().catch(() => null);
+      if (!res.ok || json?.success === 'false' || json?.success === false) throw new Error('Request failed');
       setSent(true);
       form.reset();
       toast.success('Quote request sent! We\'ll be in touch shortly.');
     } catch {
-      toast('Opening WhatsApp instead so we don\'t lose your message…');
-      openWhatsAppFallback(payload);
+      toast.error('Something went wrong. Please try again or WhatsApp us at +961 71 582 222.');
     } finally {
       setSubmitting(false);
     }

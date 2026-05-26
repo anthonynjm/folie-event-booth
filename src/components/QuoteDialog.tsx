@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/eca45746b19489ba1a44924d06dfee84';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/Anthony-najem@hotmail.com';
 
 const SERVICES = [
   'LiveBooth',
@@ -69,7 +69,9 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
         _template: 'table',
       }),
     })
-      .then(() => {
+      .then(async (res) => {
+        const json = await res.json().catch(() => null);
+        if (json?.success === 'false' || json?.success === false) throw new Error('Form not active');
         setSent(true);
         form.reset();
         setSelected([]);
@@ -77,17 +79,7 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
         toast.success("Quote request sent! We'll be in touch shortly.");
       })
       .catch(() => {
-        const lines = [
-          'Hi La Folie — I\'d like to request a quote.',
-          payload.name && `Name: ${payload.name}`,
-          payload.phone && `Phone: ${payload.phone}`,
-          payload.email && `Email: ${payload.email}`,
-          `Services: ${services}`,
-          eventDates !== '—' && `Date(s): ${eventDates}`,
-          payload.message && `Message: ${payload.message}`,
-        ].filter(Boolean).join('\n');
-        window.open(`https://wa.me/96171582222?text=${encodeURIComponent(lines)}`, '_blank');
-        toast('Opening WhatsApp instead so we don\'t lose your message...');
+        toast.error('Something went wrong. Please try again or WhatsApp us at +961 71 582 222.');
       })
       .finally(() => setSubmitting(false));
   }
