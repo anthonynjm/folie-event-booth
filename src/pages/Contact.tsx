@@ -39,7 +39,7 @@ const contactPageSchema = {
   },
 };
 
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/345d1b1f9102f7241d0a4abed79351b7';
+const FORM_ENDPOINT = 'https://groovyrent.com/api/form-mail';
 
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -71,12 +71,13 @@ const Contact = () => {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           ...payload,
-          _subject: `La Folie Entertainment Submission — ${payload.name || 'Website Inquiry'}`,
-          _template: 'table',
+          _subject: `La Folie Contact — ${payload.name || 'Website Inquiry'}`,
+          _site: 'lafolie',
         }),
       });
+      if (!res.ok) throw new Error('Send failed');
       const json = await res.json().catch(() => null);
-      if (!res.ok || json?.success === 'false' || json?.success === false) throw new Error('Request failed');
+      if (json?.success === false) throw new Error(json?.message || 'Send failed');
       setSent(true);
       form.reset();
       toast.success('Quote request sent! We\'ll be in touch shortly.');

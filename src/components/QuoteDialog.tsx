@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/345d1b1f9102f7241d0a4abed79351b7';
+const FORM_ENDPOINT = 'https://groovyrent.com/api/form-mail';
 
 const SERVICES = [
   'LiveBooth',
@@ -66,12 +66,13 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
         Services: services,
         'Event Date(s)': eventDates,
         _subject: `La Folie Quote — ${services}`,
-        _template: 'table',
+        _site: 'lafolie',
       }),
     })
       .then(async (res) => {
+        if (!res.ok) throw new Error('Send failed');
         const json = await res.json().catch(() => null);
-        if (json?.success === 'false' || json?.success === false) throw new Error('Form not active');
+        if (json?.success === false) throw new Error(json?.message || 'Send failed');
         setSent(true);
         form.reset();
         setSelected([]);
