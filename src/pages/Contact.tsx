@@ -39,7 +39,7 @@ const contactPageSchema = {
   },
 };
 
-const FORM_ENDPOINT = 'https://groovyrent.com/api/form-mail';
+const FORM_ENDPOINT = 'https://groovy-rent.anthonynjm38.workers.dev/api/form-mail';
 
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);

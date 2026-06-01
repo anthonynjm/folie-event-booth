@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 
-const FORM_ENDPOINT = 'https://groovyrent.com/api/form-mail';
+const FORM_ENDPOINT = 'https://groovy-rent.anthonynjm38.workers.dev/api/form-mail';
 
 const SERVICES = [
   'LiveBooth',
