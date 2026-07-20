@@ -109,6 +109,8 @@ const Contact = () => {
           {/* Form */}
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0, transition: { delay: 0.2 } }} className="rounded-lg border border-border/50 bg-card p-6">
             <form className="space-y-4" onSubmit={handleSubmit}>
+              {/* Honeypot — invisible to humans; bots that fill it get silently dropped */}
+              <input type="text" name="_honeypot" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
               <div>
                 <label htmlFor="name" className="font-body text-sm font-medium text-foreground">Name</label>
                 <input id="name" name="name" type="text" required className="mt-1 w-full rounded-md border border-border/50 bg-secondary px-4 py-2.5 font-body text-sm text-foreground outline-none focus:border-primary" placeholder="Your name" />

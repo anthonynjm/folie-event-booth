@@ -114,6 +114,8 @@ export function QuoteDialogProvider({ children }: { children: React.ReactNode })
             </div>
           ) : (
             <form className="space-y-4" onSubmit={handleSubmit}>
+              {/* Honeypot — invisible to humans; bots that fill it get silently dropped */}
+              <input type="text" name="_honeypot" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
               <fieldset>
                 <legend className="font-body text-sm font-medium text-foreground">Services</legend>
                 <div className="mt-2 grid grid-cols-2 gap-2">
